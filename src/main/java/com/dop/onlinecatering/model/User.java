@@ -6,6 +6,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,6 +31,7 @@ public class User extends AuditModel {
     @ManyToOne
     private City city;
 
-    private List<Review> reviews;
+    @OneToMany
+    private List<Review> reviews = new ArrayList<>();
 
 }

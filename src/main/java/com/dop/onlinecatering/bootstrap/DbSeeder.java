@@ -27,7 +27,7 @@ public class DbSeeder implements CommandLineRunner {
 
         user.setFirstName("gggg");
         user.setFirstName("bbb");
-        user.setPhoneNumber("444444444");
+        user.setPhoneNumber("455555555444");
         user.setCreated(new Date());
         user.setUpdated(new Date());
         user.setVerified(true);

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Setter
 @Table(name = "sub_city")
 @Entity
-public class SubCity extends AuditModel {
+public class SubCity extends AuditModel { // NOT NECESSARY !!!!
 
     private String name;
 

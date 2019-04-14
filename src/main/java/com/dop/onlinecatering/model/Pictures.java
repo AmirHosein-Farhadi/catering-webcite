@@ -8,13 +8,10 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@Table(name = "review")
 @Entity
-public class Review extends AuditModel {
+@Table(name = "pictures")
+public class Pictures extends AuditModel {
 
+    private String pictureName;
 
-
-    private int rating;
-
-    private String comment;
 }

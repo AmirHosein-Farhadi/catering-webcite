@@ -12,12 +12,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "cities")
-public class City extends AuditModel {
+@Table(name = "meals")
+public class Meals extends AuditModel {
 
-    private String name;
+    private String mealName;
+    private String mealDescription;
 
     @OneToMany
-    private List<SubCity> subCities = new ArrayList<>(); // NOT NECESSARY!! define it in Address
+    private List<Pictures> mealPictures = new ArrayList<>();
 
 }

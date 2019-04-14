@@ -6,18 +6,20 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "cities")
-public class City extends AuditModel {
+@Table(name = "events")
+public class Events extends AuditModel {
 
-    private String name;
-
+    @NotNull
+    private String title;
     @OneToMany
-    private List<SubCity> subCities = new ArrayList<>(); // NOT NECESSARY!! define it in Address
+    private List<Pictures> picture = new ArrayList<>();
+    private String content;
 
 }

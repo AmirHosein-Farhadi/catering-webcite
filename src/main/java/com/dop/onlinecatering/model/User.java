@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -39,12 +38,10 @@ public class User extends AuditModel implements UserDetails {
     private String lastName;
     private char gender = 'u';
     private String email;
-    private String address;
-    private String postalCode;
     private String nationalCode;
 
-    @ManyToOne
-    private City city;
+    @OneToOne
+    private Address address;
 
     @OneToMany
     private List<Review> reviews = new ArrayList<>();

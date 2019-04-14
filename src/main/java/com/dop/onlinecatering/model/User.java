@@ -34,6 +34,10 @@ public class User extends AuditModel implements UserDetails {
     @Column(length = 100)
     private String password;
 
+    @OneToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
     private String firstName;
     private String lastName;
     private char gender = 'u';
@@ -46,9 +50,8 @@ public class User extends AuditModel implements UserDetails {
     @OneToMany
     private List<Review> reviews = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @OneToMany
+    private  List<OrderList> orderLists = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

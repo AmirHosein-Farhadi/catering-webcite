@@ -18,6 +18,6 @@ public class City extends AuditModel {
     private String name;
 
     @OneToMany
-    private List<SubCity> subCities = new ArrayList<>(); // NOT NECESSARY!! define it in Address
+    private List<SubCity> subCities = new ArrayList<>();        //todo implement an method to modify the list in its Interface
 
 }

@@ -4,10 +4,7 @@ package com.dop.onlinecatering.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +13,21 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "goods")
-public class Goods extends AuditModel {
+public class Good extends AuditModel {
 
     @NotNull
-    private String goodName ;
+    private String title;
+
+    @Lob
     private String description;
+
     @NotNull
-    private int goodPrice;
+    private int price;
+
     @OneToMany
     private List<Pictures> pictures = new ArrayList<>();
+
     @OneToOne
-    private GoodTypes goodType;
+    private Category category;
 
 }

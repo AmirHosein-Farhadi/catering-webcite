@@ -3,10 +3,7 @@ package com.dop.onlinecatering.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,22 +15,24 @@ import java.util.List;
 public class Packages extends AuditModel {
 
     @NotNull
-    private String packageName;
-    private String packageDescription;
-
-    @OneToMany
-    private List<Pictures> picture = new ArrayList<>();
+    private String title;
 
     @NotNull
-    private int packagePrice;
-
-    @OneToMany
-    private List<Goods> packageGoods = new ArrayList<>();
+    private int price;
 
     @OneToOne
-    private Discounts discounts;
+    private Discount discount;
+
+    @Lob
+    private String description;
 
     @OneToMany
-    private List<Review> review = new ArrayList<>();
+    private List<Pictures> pictures = new ArrayList<>();
+
+    @OneToMany
+    private List<Good> goods = new ArrayList<>();
+
+    @OneToMany
+    private List<Review> reviews = new ArrayList<>();
 
 }

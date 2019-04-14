@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -14,12 +15,16 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "events")
-public class Events extends AuditModel {
+public class Event extends AuditModel {
 
     @NotNull
     private String title;
+
     @OneToMany
     private List<Pictures> picture = new ArrayList<>();
+
+    //todo validate the size of this field in the front-end too
+    @Lob
     private String content;
 
 }

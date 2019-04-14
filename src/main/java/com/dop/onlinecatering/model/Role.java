@@ -10,5 +10,6 @@ import javax.persistence.Entity;
 @Entity
 public class Role extends AuditModel {
 
+    //todo to be checked with security
     private String name;
 }

@@ -11,10 +11,10 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
-@Table(name = "good_types")
-public class GoodTypes extends AuditModel {
+@Table(name = "category")
+public class Category extends AuditModel {
 
     @NotNull
-    private String goodTypeName;//ie fruit,dairy ,....
+    private String category;//ie fruit,dairy ,....
 
 }

@@ -12,12 +12,13 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
-@Table(name = "discount")
-public class Discounts extends AuditModel {
+@Table(name = "discounts")
+public class Discount extends AuditModel {
+
+    //todo use id as the discount code if needed
 
     @NotNull
     private int discountPercent;
-    private String discountName;
-    private String discountCode;
 
+    private String discountName;
 }

@@ -9,11 +9,11 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "pictures")
-public class Pictures extends AuditModel {
+@Table(name = "meals")
+public class Meal extends AuditModel {
 
     private String name;
 
-    //todo this class has a lot of work to do
+    private String description;
 
 }

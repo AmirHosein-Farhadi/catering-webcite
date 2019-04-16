@@ -2,7 +2,7 @@ package com.dop.onlinecatering.config;
 
 import com.dop.onlinecatering.error.CustomAccessDeniedHandler;
 import com.dop.onlinecatering.security.AuthenticationHandler;
-import com.dop.onlinecatering.security.RestAuthenticationEntryPoint;
+import com.dop.onlinecatering.security.MyBasicAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomAccessDeniedHandler accessDeniedHandler;
 
     @Autowired
-    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    private MyBasicAuthenticationEntryPoint restAuthenticationEntryPoint;
 
     @Autowired
     private AuthenticationHandler mySuccessHandler;

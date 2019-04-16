@@ -1,6 +1,7 @@
 package com.dop.onlinecatering.model;
 
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@EqualsAndHashCode(exclude = "pictures", callSuper = false)
 @Entity
 @Table(name = "goods")
 public class Good extends AuditModel {

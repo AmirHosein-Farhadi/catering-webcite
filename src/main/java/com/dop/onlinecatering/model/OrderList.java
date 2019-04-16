@@ -1,29 +1,28 @@
 package com.dop.onlinecatering.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Getter
 @Setter
+@EqualsAndHashCode(exclude = {"packages", "goods"}, callSuper = false)
 @Entity
+@Table(name = "order_lists")
 public class OrderList extends AuditModel {
 
     @OneToMany
     private List<Good> goods = new ArrayList<>();
 
-    @ManyToOne
-    private User user;
-
     @OneToMany
     private List<Packages> packages = new ArrayList<>();
-
-    //todo define an enum to for the condition of delivery
 
 }

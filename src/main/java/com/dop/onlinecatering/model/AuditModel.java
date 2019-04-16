@@ -14,7 +14,7 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class AuditModel implements Serializable {
+public abstract class  AuditModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

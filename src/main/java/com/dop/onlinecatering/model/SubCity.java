@@ -1,5 +1,6 @@
 package com.dop.onlinecatering.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +10,9 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@Table(name = "sub_city")
+@EqualsAndHashCode(callSuper = false)
 @Entity
+@Table(name = "sub_city")
 public class SubCity extends AuditModel {
 
     private String name;

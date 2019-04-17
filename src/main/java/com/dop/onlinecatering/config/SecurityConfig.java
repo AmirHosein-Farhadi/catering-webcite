@@ -1,9 +1,8 @@
 package com.dop.onlinecatering.config;
 
 import com.dop.onlinecatering.error.CustomAccessDeniedHandler;
-import com.dop.onlinecatering.security.AuthenticationHandler;
+import com.dop.onlinecatering.security.AuthenticationSuccessHandler;
 import com.dop.onlinecatering.security.MyBasicAuthenticationEntryPoint;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -18,22 +17,24 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private CustomAccessDeniedHandler accessDeniedHandler;
+    private final CustomAccessDeniedHandler accessDeniedHandler;
 
-    @Autowired
-    private MyBasicAuthenticationEntryPoint restAuthenticationEntryPoint;
+    private final MyBasicAuthenticationEntryPoint restAuthenticationEntryPoint;
 
-    @Autowired
-    private AuthenticationHandler mySuccessHandler;
+    private final AuthenticationSuccessHandler mySuccessHandler;
+
+    public SecurityConfig(AuthenticationSuccessHandler mySuccessHandler, CustomAccessDeniedHandler accessDeniedHandler, MyBasicAuthenticationEntryPoint restAuthenticationEntryPoint) {
+        this.mySuccessHandler = mySuccessHandler;
+        this.accessDeniedHandler = accessDeniedHandler;
+        this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
+    }
 
     private SimpleUrlAuthenticationFailureHandler myFailureHandler = new SimpleUrlAuthenticationFailureHandler();
-
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("admin").password(encoder().encode("adminPass")).roles("ADMIN")
+                .withUser("admin").password(encoder().encode("userPass")).roles("ADMIN")
                 .and()
                 .withUser("user").password(encoder().encode("userPass")).roles("USER");
     }
@@ -48,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/customser/**").permitAll()
-                .antMatchers("/api/customer/**").authenticated()
+                .antMatchers("/users/all").permitAll()
+                .antMatchers("/admin/users").authenticated()
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()

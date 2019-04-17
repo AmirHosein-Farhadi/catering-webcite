@@ -1,5 +1,6 @@
 package com.dop.onlinecatering.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode(exclude = {"reviews", "orderLists", "roles"}, callSuper = false)
 @Table(name = "users")
 public class User extends AuditModel implements UserDetails {
 
@@ -52,6 +54,12 @@ public class User extends AuditModel implements UserDetails {
 
     @OneToMany
     private  List<OrderList> orderLists = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -14,20 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class AuthenticationHandler extends SimpleUrlAuthenticationSuccessHandler {
+public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     private RequestCache requestCache = new HttpSessionRequestCache();
 
     @Override
-    public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws ServletException, IOException {
-        final SavedRequest savedRequest = requestCache.getRequest(request, response);
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
+
+        SavedRequest savedRequest = requestCache.getRequest(request, response);
 
         if (savedRequest == null) {
             clearAuthenticationAttributes(request);
             return;
         }
-        final String targetUrlParameter = getTargetUrlParameter();
-        if (isAlwaysUseDefaultTargetUrl() || (targetUrlParameter != null && StringUtils.hasText(request.getParameter(targetUrlParameter)))) {
+        String targetUrlParam = getTargetUrlParameter();
+        if (isAlwaysUseDefaultTargetUrl() || (targetUrlParam != null && StringUtils.hasText(request.getParameter(targetUrlParam)))) {
             requestCache.removeRequest(request, response);
             clearAuthenticationAttributes(request);
             return;
@@ -36,7 +37,7 @@ public class AuthenticationHandler extends SimpleUrlAuthenticationSuccessHandler
         clearAuthenticationAttributes(request);
     }
 
-    public void setRequestCache(final RequestCache requestCache) {
+    public void setRequestCache(RequestCache requestCache) {
         this.requestCache = requestCache;
     }
 }

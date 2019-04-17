@@ -21,7 +21,7 @@ public class Event extends AuditModel {
     private String title;
 
     @OneToMany
-    private List<Pictures> picture = new ArrayList<>();
+    private List<Picture> picture = new ArrayList<>();
 
     //todo validate the size of this field in the front-end too
     @Lob

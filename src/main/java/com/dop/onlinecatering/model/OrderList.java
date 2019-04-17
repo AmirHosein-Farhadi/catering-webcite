@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -23,6 +22,7 @@ public class OrderList extends AuditModel {
     private List<Good> goods = new ArrayList<>();
 
     @OneToMany
-    private List<Packages> packages = new ArrayList<>();
+    private List<Package> packages = new ArrayList<>();
+
 
 }

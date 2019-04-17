@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
-public class Transactions extends AuditModel {
+public class Transaction extends AuditModel {
 
     @ManyToOne
     private User user;

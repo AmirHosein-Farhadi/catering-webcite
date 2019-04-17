@@ -27,7 +27,7 @@ public class Good extends AuditModel {
     private int price;
 
     @OneToMany
-    private List<Pictures> pictures = new ArrayList<>();
+    private List<Picture> pictures = new ArrayList<>();
 
     @OneToOne
     private Category category;

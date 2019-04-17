@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode(exclude = {"pictures", "goods", "reviews"}, callSuper = false)
 @Entity
 @Table(name = "packages")
-public class Packages extends AuditModel {
+public class Package extends AuditModel {
 
     @NotNull
     private String title;
@@ -29,7 +29,7 @@ public class Packages extends AuditModel {
     private String description;
 
     @OneToMany
-    private List<Pictures> pictures = new ArrayList<>();
+    private List<Picture> pictures = new ArrayList<>();
 
     @OneToMany
     private List<Good> goods = new ArrayList<>();

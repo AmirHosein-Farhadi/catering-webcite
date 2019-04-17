@@ -1,6 +1,5 @@
 package com.dop.onlinecatering.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -54,7 +53,7 @@ public class User extends AuditModel implements UserDetails {
     //todo check with front if need a field for orderList to save unfinished orders
 
     @OneToMany
-    private  List<Transactions> transactions = new ArrayList<>();
+    private  List<Transaction> transactions = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "pictures")
-public class Pictures extends AuditModel {
+public class Picture extends AuditModel {
 
     private String name;
 

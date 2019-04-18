@@ -18,7 +18,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "users")
-public class User extends AuditModel implements UserDetails {
+public class User extends AuditModel{
 
     @NotBlank
     @NotNull
@@ -27,22 +27,23 @@ public class User extends AuditModel implements UserDetails {
     private String phoneNumber;         //this is the field which should be unique and identifies the user
 
     @Column(unique = true)
-    @Size(min = 8, max = 20)
+    @Size(min = 4, max = 20)
     private String username;            //or we can switch to user name
                                         //todo Decide Which one to implement
 
     @Column(length = 100)
     private String password;
 
-    @OneToOne
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
-    private Role role;
+    private List<Role> roles;
 
     private String firstName;
     private String lastName;
     private char gender = 'u';
     private String email;
     private String nationalCode;
+    private boolean isActive = true;
 
     @OneToOne
     private Address address;
@@ -54,31 +55,4 @@ public class User extends AuditModel implements UserDetails {
 
     @OneToMany
     private  List<Transaction> transactions = new ArrayList<>();
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(role.getName()));
-        return authorities;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

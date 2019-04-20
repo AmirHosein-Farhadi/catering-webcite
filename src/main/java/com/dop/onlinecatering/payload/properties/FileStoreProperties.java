@@ -1,4 +1,4 @@
-package com.dop.onlinecatering.properties;
+package com.dop.onlinecatering.payload.properties;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.dop.onlinecatering.exceptions;
+package com.dop.onlinecatering.payload.exceptions;
 
 
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.dop.onlinecatering.exceptions;
+package com.dop.onlinecatering.payload.exceptions;
 
 public class FileStorageException extends RuntimeException {
     public FileStorageException(String message) {

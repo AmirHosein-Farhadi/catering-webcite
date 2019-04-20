@@ -2,8 +2,8 @@ package com.dop.onlinecatering.services;
 
 
 
-import com.dop.onlinecatering.exceptions.FileStorageException;
-import com.dop.onlinecatering.exceptions.MyFileNotFoundException;
+import com.dop.onlinecatering.payload.exceptions.FileStorageException;
+import com.dop.onlinecatering.payload.exceptions.MyFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -16,7 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import com.dop.onlinecatering.properties.FileStoreProperties;
+import com.dop.onlinecatering.payload.properties.FileStoreProperties;
 
 @Service
 public class FileStorageService {

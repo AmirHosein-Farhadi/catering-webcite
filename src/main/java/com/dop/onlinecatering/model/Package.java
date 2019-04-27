@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = {"pictures", "goods", "reviews"}, callSuper = false)
+@EqualsAndHashCode(exclude = {"pictures", "goods", "reviews"}, callSuper = true)
 @Entity
 @Table(name = "packages")
 public class Package extends AuditModel {

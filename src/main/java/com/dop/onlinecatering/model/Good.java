@@ -12,7 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = "pictures", callSuper = false)
+@EqualsAndHashCode(exclude = "pictures", callSuper = true)
 @Entity
 @Table(name = "goods")
 public class Good extends AuditModel {

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "review")
 @Entity
 public class Review extends AuditModel {

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = {"packages", "goods"}, callSuper = false)
+@EqualsAndHashCode(exclude = {"packages", "goods"}, callSuper = true)
 @Entity
 @Table(name = "order_lists")
 public class OrderList extends AuditModel {

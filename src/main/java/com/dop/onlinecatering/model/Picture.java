@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "pictures")
 public class Picture extends AuditModel {
